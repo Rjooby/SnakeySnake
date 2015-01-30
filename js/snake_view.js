@@ -5,13 +5,15 @@
 
   var View = Snakey.View = function ($el) {
     this.$el = $el;
-    this.board = new Snakey.Board(60, 1);
-    this.setupGrid();
     var that = this;
+    this.setupGrid();
 
     $("form").submit(function(event) {
       event.preventDefault();
+      that.players = $("input[type='checkbox'][name='playercount']:checked").val() || 1;
       var speed = $("input[type='radio'][name='difficulty']:checked").val();
+      console.log(that.players);
+      that.board = new Snakey.Board(60, that.players);
       that.intervalId = window.setInterval( that.step.bind(that), speed)
       });
 
@@ -19,12 +21,19 @@
 
   };
 
-  View.KEYS = {
+  View.KEYS2 = {
     38: "N",
     39: "E",
     40: "S",
     37: "W"
   };
+
+  View.KEYS = {
+    87: "N",
+    68: "E",
+    83: "S",
+    65: "W"
+  }
 
   View.prototype.handleKeyEvent = function (event) {
     if (View.KEYS[event.keyCode]) {
@@ -32,11 +41,19 @@
     } else {
 
     }
+    if(this.board.snake2){
+      if (View.KEYS2[event.keyCode]) {
+        this.board.snake2.turn(View.KEYS2[event.keyCode]);
+      }
+    }
   };
 
   View.prototype.render = function () {
     this.updateClasses([this.board.apple.position], "apple");
     this.updateClasses(this.board.snake.segments, "snake");
+    if (this.board.snake2) {
+      this.updateClasses(this.board.snake2.segments, "snake2");
+    }
   };
 
   View.prototype.updateClasses = function (coords, className) {
@@ -53,9 +70,9 @@
 
   View.prototype.setupGrid = function () {
     var html = "";
-    for (var i = 0; i <this.board.dim; i++){
+    for (var i = 0; i <60; i++){
       html += "<ul class='group'>";
-      for (var j = 0; j < this.board.dim; j++) {
+      for (var j = 0; j < 60; j++) {
         html += "<li></li>";
       }
       html+= "</ul>";
@@ -72,15 +89,44 @@
   };
 
   View.prototype.step = function () {
-    if (this.board.snake.segments.length > 0) {
-      this.board.snake.move();
-      this.render();
+
+    if (this.board.snake2) {
+
+      if (this.board.snake.segments.length > 0 && this.board.snake2.segments.length > 0) {
+        this.board.snake.move();
+        this.board.snake2.move();
+        this.render();
+      } else if (this.board.snake2.segments.length === 0 && this.board.snake.segments.length === 0) {
+        alert ("You both lose");
+        window.clearInterval(this.intervalId);
+        window.location.reload(false);
+      } else if (this.board.snake2.segments.length === 0) {
+        alert ("Player 2 loses");
+          window.clearInterval(this.intervalId);
+          window.location.reload(false);
+      } else if (this.board.snake.segments.length === 0) {
+        alert ("Player 1 loses");
+          window.clearInterval(this.intervalId);
+          window.location.reload(false);
+      }
+
     } else {
+      if (this.board.snake.segments.length > 0) {
+        this.board.snake.move();
+        this.render();
+      } else {
       alert("You lose! Your score:" + this.board.snake.score);
       var that = this;
       window.clearInterval(this.intervalId);
       window.location.reload(false);
+      }
     }
+
+
+
+
+
+    // }
   };
 
 })();

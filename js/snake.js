@@ -3,14 +3,18 @@
     window.Snakey = {};
   }
 
-  var Snake = Snakey.Snake = function (board) {
+  var Snake = Snakey.Snake = function (board, player) {
     this.dir = "N";
     // this.turning = false;
     this.board = board;
     this.sound = new Audio("../media/crunch.wav");
     this.score = 0;
-    var center = new Snakey.Coord(Math.floor(board.dim/2), Math.floor(board.dim/2));
-    this.segments = [center];
+    var center = new Snakey.Coord(45,30);
+    if (player === 2) {
+      this.segments = [new Snakey.Coord(15, 30)]
+    } else {
+      this.segments = [center];
+    }
     this.symbol = "S";
     this.growTurns = 0;
   };
@@ -24,7 +28,7 @@
 
   Snake.prototype.isValid = function () {
     var head = this.head();
-    if (!this.board.validPosition(this.head())) {
+    if (!this.board.validPosition(this.head(), this)) {
       return false;
     }
 
@@ -41,7 +45,6 @@
     this.turning = false;
 
     if (this.eatApple()){
-      console.log("eaten");
       this.board.apple.replace();
     }
 
@@ -68,7 +71,8 @@
   Snake.prototype.isOccupying = function (array) {
     var result = false;
     this.segments.forEach(function (segment) {
-      if (segment.i === array[0] && segment.j === array[i]) {
+      console.log(segment.i);
+      if (segment.i === array[0] && segment.j === array[1]) {
         result = true;
         return result;
       }
@@ -82,7 +86,7 @@
   Snake.prototype.eatApple = function () {
     if (this.head().equals(this.board.apple.position)) {
       this.sound.play();
-      this.growTurns += 1;
+      this.growTurns += 3;
       this.score += 1;
       return true;
     } else {
