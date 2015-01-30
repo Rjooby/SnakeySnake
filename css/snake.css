@@ -1,0 +1,46 @@
+html, body, a, p, ul, li, div {
+  border: none;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  background: #ccc;
+
+}
+
+div.game {
+  border: 1px solid black;
+  width: 600px;
+  margin: 50px auto;
+}
+
+ul {
+  display: block;
+  list-style: none;
+  height: 10px;
+}
+
+li{
+  float: left;
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50%;
+}
+
+.snake {
+  background: green;
+}
+
+.apple {
+  background: red;
+}
+
+.group {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.green {
+  background: green;
+}

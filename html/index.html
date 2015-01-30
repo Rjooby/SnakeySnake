@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/snake.css">
+
+
+  </head>
+  <body>
+    <div class="game group"></div>
+    <p class="score"></p>
+    <form>
+      <label><input type="radio" name="difficulty" class="easy" value="200" checked="checked">Easy</label>
+      <label><input type="radio" name="difficulty" class="intermediate" value="100">Intermediate</label>
+      <label><input type="radio" name="difficulty" class="difficult" value="50">Difficult</label>
+      <label><input type="radio" name="difficulty" class="extreme" value="20">EXTREME</label>
+      <input type="submit" name="some_name" value="Start Game">
+    </form>
+
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/coord.js"></script>
+    <script src="../js/snake.js"></script>
+    <script src="../js/apple.js"></script>
+    <script src="../js/board.js"></script>
+    <script src="../js/snake_view.js"></script>
+
+
+    <script>
+      $(function () {
+        new Snakey.View($(".game"));
+      });
+    </script>
+  </body>
+</html>
