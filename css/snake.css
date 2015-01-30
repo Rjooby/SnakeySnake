@@ -1,4 +1,5 @@
 html, body, a, p, ul, li, div, menu, form, h2 {
+  display: inherit;
   border: none;
   margin: 0;
   padding: 0;
@@ -56,14 +57,24 @@ section.diff-choice {
 
 label.check {
   float: left;
-  width: 150px;
+  width: 350px;
   height: 19px;
 }
 
 input[type="submit"] {
   float: right;
-  margin: 20px;
 }
+
+div.controls {
+  width: 600px;
+  text-align: center;
+  margin: auto;
+}
+
+div.controls > table {
+  margin: auto;
+}
+
 
 .snake {
   background: green;
@@ -77,7 +88,7 @@ input[type="submit"] {
   background: red;
 }
 
-.group {
+.group:after {
   display: block;
   content: "";
   clear: both;
