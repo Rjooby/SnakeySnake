@@ -1,0 +1,99 @@
+html, body, a, p, ul, li, div, menu, form, h2 {
+  display: inherit;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  background: #ccc;
+
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+  padding: 50px 0 0 0;
+}
+
+div.game {
+  border: 4px solid black;
+  width: 600px;
+  margin: 20px auto 0 auto;
+
+}
+
+body {
+  font-family: 'Sigmar One', cursive;
+}
+
+ul {
+  display: block;
+  list-style: none;
+  height: 10px;
+  background: white;
+}
+
+li{
+  float: left;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+}
+
+menu {
+  width: 598px;
+  margin: auto;
+  background:
+}
+
+menu > form {
+  padding: 20px;
+}
+
+section.diff-choice {
+  float: left;
+  width: 500px;
+}
+
+label.check {
+  float: left;
+  width: 350px;
+  height: 19px;
+}
+
+input[type="submit"] {
+  float: right;
+}
+
+div.controls {
+  width: 600px;
+  text-align: center;
+  margin: auto;
+}
+
+div.controls > table {
+  margin: auto;
+}
+
+
+.snake {
+  background: green;
+}
+
+.snake2 {
+  background: blue;
+}
+
+.apple {
+  background: red;
+}
+
+.group:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.green {
+  background: green;
+}

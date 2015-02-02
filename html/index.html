@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/snake.css">
+    <link href='http://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
+
+
+  </head>
+  <body>
+    <h2>Snakey Snake</h2>
+    <div class="game group"></div>
+    <menu class= "group">
+      <p class="score"></p>
+      <form class="group">
+        <section class="diff-choice group">
+          <label><input type="radio" name="difficulty" class="easy" value="400" checked="checked">Easy</label>
+          <label><input type="radio" name="difficulty" class="intermediate" value="200">Intermediate</label>
+          <label><input type="radio" name="difficulty" class="difficult" value="50">Difficult</label>
+          <label><input type="radio" name="difficulty" class="extreme" value="20">EXTREME</label>
+        </section>
+
+        <label class="check"><input type="checkbox" name="playercount" value="2">2 players?</label>
+
+        <input type="submit" name="some_name" value="Start Game">
+      </form>
+
+    </menu>
+      <div class="controls">
+        <table>
+          <tr>
+            <th></th>
+            <th>Player One</th>
+            <th> Player Two </th>
+          </tr>
+          <tr>
+            <td></td>
+            <td>WASD</td>
+            <td>D-pad</td>
+          </tr>
+        </table>
+      </div>
+
+    <script src="../js/jquery-1.9.1.js"></script>
+    <script src="../js/coord.js"></script>
+    <script src="../js/snake.js"></script>
+    <script src="../js/apple.js"></script>
+    <script src="../js/board.js"></script>
+    <script src="../js/snake_view.js"></script>
+
+
+    <script>
+      $(function () {
+        new Snakey.View($(".game"));
+      });
+    </script>
+  </body>
+</html>
