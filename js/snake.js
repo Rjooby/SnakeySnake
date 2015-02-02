@@ -87,7 +87,7 @@
     if (this.head().equals(this.board.apple.position)) {
       this.sound.play();
       this.growTurns += 3;
-      this.score += 1;
+      this.score += 10;
       return true;
     } else {
       return false;
