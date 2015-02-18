@@ -2,7 +2,7 @@
 Recreation of the classic 2d game snake using Javascript, jQuery, HTML, and CSS. Avoid the walls and your own body while eating as many apples as possible. Game rendering is done entirely through toggling CSS classes while backend functionality was written in Javascript.
 
 ## Features included
-* Varying difficulties
+* Varying difficulties by accordingly adjusting interval speed.
 * 2 player mode available using one keyboard
 
 ## Upcoming improvements
