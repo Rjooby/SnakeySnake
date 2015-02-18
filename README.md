@@ -1,6 +1,11 @@
-# SnakeySnake
+## SnakeySnake
+Recreation of the classic 2d game snake using Javascript, jQuery, HTML, and CSS. Avoid the walls and your own body while eating as many apples as possible. Game rendering is done entirely through toggling CSS classes while backend functionality was written in Javascript.
 
-Recreation of the classic 2d game snake. 
+## Features included
+* Varying difficulties
+* 2 player mode available using one keyboard
 
-Features included: Varying difficulties, 2 players
-Technologies used: Javacscript, JQuery,CSS
+## Upcoming improvements
+* Reworking CSS to make the game more visually appealing.
+* Smoother game reset transition
+* Score counters for both players
